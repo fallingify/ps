@@ -1,0 +1,69 @@
+주어진 수의 두 홀수의 합으로 구성하고 이 차이가 가장 큰 것을 출력
+없다면 없다고 출력한다. 
+
+while(){
+    result[0]
+    result[1] 
+
+}
+
+이런식으로 계산
+
+-----
+
+연산횟수를 줄이기 위해 buffer에 입출력하도록 변수를 생성
+
+<입력>
+BufferedReader br = new BufferedReader(new InputStream(System.in));
+int num = Integer.parseInt(br.readLine())
+
+
+
+<출력>
+BufferdWriter bw = new BufferdWriter(new OutputStreamWriter(System.out))
+
+-----
+소수 판별
+public staic boolean[] findPrime(boolean 배열) {
+    int cnt; 
+    for(int i=2; i<primes.length; i++) {
+        if(i % j == 0){
+            cnt ++; 
+            break; 
+        }
+
+        if(cnt == 0) {
+            primes[i] = true; 
+        }
+    }
+    return primes; 
+}
+
+
+-----
+값을 2개의 소수의 합으로 표현
+while(num != 0) {
+    resuilt = new int[2];  //2개짜리 합 배열 
+
+    for(int i=num; i >= 0; i--) {
+        if(primes[i] && primes[num - i]) {
+            result[1] = i; 
+            result[0] = num - i; 
+            bw.write(num + " = " + result[0] + " + " + result[1] + "\n");
+            break; 
+         
+
+        }
+    }
+    if(result[0] == 0) {
+        bw.write("GoldBa")
+    }
+    num = Integer.parseint(br.readLine());
+}
+
+bw.close();
+
+---
+
+
+
