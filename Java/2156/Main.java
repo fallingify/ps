@@ -16,8 +16,8 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine()); 
 
-        int[] arr = new int[N + 1];  // (1, 2, ..., N)
-        int[] dp = new int[N + 1]; 
+        int[] arr = new int[N];  // (1, 2, ..., N)
+        int[] dp = new int[N]; 
 
         // 배열 입력 
         
