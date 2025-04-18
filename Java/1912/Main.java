@@ -36,8 +36,8 @@ public class Main {
 
         //i는 1부터 시작한다. 0부터 하면 inbountError가 발생한다
         for(int i=1; i<N; i++) {
-            dp[i] = Math.max(dp[i-1] + arr[i], arr[i]); 
-            max = Math.max(max, dp[i]); 
+            dp[i] = Math.max(dp[i-1] + arr[i], arr[i]); //합 vs 그냥하나
+            max = Math.max(max, dp[i]); //dp 중에서 큰거 선택
         }
         
         System.out.println(max);
