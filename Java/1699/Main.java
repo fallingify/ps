@@ -10,7 +10,7 @@ public class Main {
         //dp[i] : 항의 개수 
         for(int i=1; i<=N; i++) {
             dp[i] = i; //dp[4] = 4
-            for(int j=1; j*j <= i; j++) {
+            for(int j=1; j*j <= i; j++) { //i보다 작은 모든 제곱수들을 확인
                 if(dp[i] > dp[i-j*j] + 1) { 
                     dp[i] = dp[i - j * j] + 1; 
                 }
@@ -20,7 +20,8 @@ public class Main {
         System.out.println(dp[N]);
     } // Main{} end
 
-
-
     
+
+
+
 }
