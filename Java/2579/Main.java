@@ -42,11 +42,6 @@ public class Main {
         System.out.println(dp[N]);
 
     
-        // 마지막을 밟으려면 
-        // arr[N] + arr[N-1] + arr[N-3] -> dp[n-1] + arr[n-2] + arr[n-4]
-        // 이거나
-        // arr[N] + arr[N-2] + arr[N-3]; -> 
-
 
     }
 }
