@@ -49,8 +49,7 @@ public class Main {
         }
 
         System.out.println(dp[N]);
-        
-       
+      
     }
     public static void main(String[] args) throws Exception {
         new Main().solution(); 
