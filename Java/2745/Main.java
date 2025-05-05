@@ -28,7 +28,7 @@ public class Main {
             }else{  //숫자인경우 0을 빼고 숫자로 만든다. 
                 n = N.charAt(i) - '0'; 
             }  //더한다. 
-            sum += (n * Math.pow(B, i));  //pow(a, b) a의 b제곱인수,왜냐면 진법수이므로 
+            sum += (n * Math.pow(B, i));  //pow(a, b) a의 b제곱인수,왜냐면 진법수이므로 36진수로 생성해야하기 때문이다.
         } 
         System.out.println(sum);
       
