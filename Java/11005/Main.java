@@ -14,8 +14,6 @@ import java.util.*;
 
 60466175을 36진법으로 표시한다. 
 숫자가 36을 넘어가면 A - Z로 표시한다. 
-
-
  */
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -36,7 +34,5 @@ public class Main {
         }
         sb.reverse(); 
         System.out.println(sb);
-
     }
-    
 }
