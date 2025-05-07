@@ -5,6 +5,11 @@ import java.io.InputStreamReader;
 8진수 2진수
 
 8진수를 받아서 2진수로 변환한다. 
+입력값을 문자열로 받아서 하나씩 쪼개어준다.
+
+쪼개어진 입력값을 하나씩 Integer.toBinaryString에 넣어서 2진수를
+StringBuilder에 넣어준다. 이때 처음 입력받은 문자는 따로 처리해준다.
+
  */
 public class Main {
     public static void main(String[] args) throws IOException{
