@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 /**
 반복수열
-
  */
 public class Main {
     public static void main(String[] args) throws IOException {
