@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
 public class Main {
     static boolean[] visited; 
     static ArrayList<Integer>[] graph; 
+    static boolean[] finished;
     
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
