@@ -28,8 +28,9 @@ public class Main {
             cnt = 0; 
             
             //입력받기 
+            // ★ i = 1부터 시작해야 index 에러 안 남
             StringTokenizer st = new StringTokenizer(br.readLine()); 
-            for(int i=0; i<n; i++) {
+            for(int i=1; i<=n; i++) {
                 link[i] = Integer.parseInt(st.nextToken()); 
             }
 
@@ -49,6 +50,7 @@ public class Main {
     static void dfs(int cur) {
         visited[cur] = true; 
         int next = link[cur]; 
+        
         if(!visited[next]) {
             dfs(next); 
         } else {
