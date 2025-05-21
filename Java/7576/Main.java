@@ -6,7 +6,17 @@ import java.io.OutputStreamWriter;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+/**
+ * 토미토
+ * 보관된 토마토가 다 익게되는 날짜의 최소일수 
+ * 
+ * 익으면 0 
+ * 아직이면 1
+ * 모두 익을 수 없으면 -1
+ * 
+ * 익은 토마토의 옆에 있는 토마토는 익을 수 있으며
+ * 대각선의 토마토는 익지 않는다. 
+ */
 public class Main {
     static int n; 
     static int m; 
@@ -39,15 +49,16 @@ public class Main {
         System.out.println(bfs());
     }
 
-    public static int bfs() {
+    public static void bfs() {
         while(!q.isEmpty()) {
             int[] tmp = q.poll(); 
             int x = tmp[0];
             int y = tmp[1]; 
 
             for(int i=0; i<4; i++) {
-                int nx = x + dx[i]; 
-                int ny = y + dy[i]; 
+                int nx = x + dx[i];  //0, 0, 1, -1
+                int ny = y + dy[i];  //1, -1, 0, 0
+                //(0, 1), (0, -1), (1, 0), (-1, 0)
 
                 if(nx >= 0 && ny >= 0 && nx < n && ny < m) {
                     if(graph[nx][ny] == 0){
@@ -66,16 +77,6 @@ public class Main {
                 count = Math.max(count, graph[i][j]); 
             }
         }
-
-        if(count == 1) {
-            return 0; 
-        } else {
-            return count - 1; 
-        }
-    }
-
-
-
-
+    }//bfs
     
 } //main
