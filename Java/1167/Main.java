@@ -1,84 +1,74 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
-/**
- * 트리의 지름
- * 
- * 트리의 지름을 구하려면, 두 점 사이의 거리가 가장 긴 것을 말한다. 
- * 트리ㅣ 지름을 구는 프로그램을 작성하시오. 
- * 
- */
+import java.io.*;
+import java.util.*;
+
 public class Main {
-    //첫번째 줄 : 트리 정점의 개수v, v는 정점개수
-    //간선정보입력, 1-v
-    //정수 2개는 간선 정보, 하나는 정점 번호, 다른 하나는 그 정점까지의 거리 
-    static ArrayList<ArrayList<Node>> adj;
+
+    static ArrayList<Node>[] adj;
     static boolean[] visited;
-    static int maxDistance = 0;
-    static int farthestNode = 0;
+    static int[] distance; //누적
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(br.readLine());
+        adj = (ArrayList<Node>[]) new ArrayList[N + 1];
+        for (int i = 0; i <= N; i++) {
+            adj[i] = new ArrayList<>();
+        }
+
+        visited = new boolean[N + 1];
+        distance = new int[N + 1];
+
+        StringTokenizer st;
+        for (int i = 1; i <= N; i++) {
+            st = new StringTokenizer(br.readLine());
+            int u = Integer.parseInt(st.nextToken());
+            while (true) {
+                int x = Integer.parseInt(st.nextToken());
+                if (x == -1) break;
+                int y = Integer.parseInt(st.nextToken());
+                adj[u].add(new Node(x, y));
+            }
+        }
+
+        // 1차 BFS: 임의의 노드(1)로부터 가장 먼 노드 찾기
+        bfs(1);
+        int max = 1;
+        for (int i = 2; i <= N; i++) {
+            if (distance[max] < distance[i]) max = i;
+        }
+
+        // 2차 BFS: max 노드에서 가장 먼 거리 구하기
+        distance = new int[N + 1];
+        visited = new boolean[N + 1];
+        bfs(max);
+
+        System.out.println(Arrays.stream(distance).max().getAsInt());
+    }
 
     static class Node {
-        int vertex;  
-        int distance; 
+        int vertex;
+        int distance;
 
-        public Node(int vertex, int distance) {
+        Node(int vertex, int distance) {
             this.vertex = vertex;
             this.distance = distance;
         }
     }
 
-
-    public static void main(String[] args) throws IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
-        int N = Integer.parseInt(br.readLine()); 
-
-        adj = new ArrayList<>();
-        for (int i = 0; i <= N; i++) {
-            adj.add(new ArrayList<>());
-        }
-        
-        //여기를 입력 수 개수에 맞게 자동으로 할당할 수 있어야 함. 
-        for(int i=0; i<N-1; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine()); 
-            int u = Integer.parseInt(st.nextToken()); 
-
-            while(st.hasMoreTokens()) {
-                int token = Integer.parseInt(st.nextToken());
-                if(token == -1) { break; }
-            
-                int v = token;
-                int dist = Integer.parseInt(st.nextToken());
-
-                adj.get(u).add(new Node(v, dist));
-                adj.get(v).add(new Node(u, dist)); 
-            
-            }
-        }
-
-        visited = new boolean[N + 1];
-        maxDistance = 0; 
-        farthestNode = 1; 
-        dfs(farthestNode, 0);
-
-        System.out.println(maxDistance);
-    }
-
-
-    public static void dfs(int current, int distance) {
-        visited[current] = true; 
-        
-        if(distance > maxDistance) {
-            maxDistance = distance; 
-            farthestNode = current; 
-        }
-        for(Node next : adj.get(current)) {
-            if(!visited[next.vertex]) {
-                dfs(next.vertex, distance + next.distance); 
+    public static void bfs(int index) {
+        Queue<Node> queue = new LinkedList<>();
+        visited[index] = true;
+        queue.add(new Node(index, 0));
+        while (!queue.isEmpty()) {
+            Node current = queue.poll();
+            for (Node next : adj[current.vertex]) {
+                if (!visited[next.vertex]) {
+                    visited[next.vertex] = true;
+                    distance[next.vertex] = distance[current.vertex] + next.distance;
+                    queue.add(next);
+                }
             }
         }
     }
-    
 }
-
