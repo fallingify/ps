@@ -38,7 +38,7 @@ public class Main {
             if (distance[max] < distance[i]) max = i;
         }
 
-        // 2차 BFS: max 노드에서 가장 먼 거리 구하기
+        // 2차 BFS: max 노드에서 가장 먼 거리 구하기 
         distance = new int[N + 1];
         visited = new boolean[N + 1];
         bfs(max);
@@ -71,4 +71,5 @@ public class Main {
             }
         }
     }
+
 }
