@@ -29,7 +29,7 @@ public class Main {
         int result = 0; 
 
         //이진 탐색
-        while(start < end)  {
+        while(start <= end)  {
             int mid = start + (end - start) / 2; 
 
             long sum = 0; 
