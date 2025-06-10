@@ -13,15 +13,14 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
         StringTokenizer st = new StringTokenizer(br.readLine(), " "); 
 
-        int N = Integer.parseInt(st.nextToken()); 
-        int C = Integer.parseInt(st.nextToken()); //공유기 
+        N = Integer.parseInt(st.nextToken()); 
+        C = Integer.parseInt(st.nextToken()); //공유기 
 
-        int[] arr = new int[N]; 
-        int max =0; 
+        arr = new int[N]; 
 
-        st = new StringTokenizer(br.readLine()); 
+
         for(int i=0; i<N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken()); 
+            arr[i] = Integer.parseInt(br.readLine()); 
         }
 
         Arrays.sort(arr); 
@@ -31,7 +30,6 @@ public class Main {
         int result = 0; 
 
         while(low <= high) {
-
             int mid = low + (high - low) / 2; 
 
             if(check(mid)) {
@@ -46,7 +44,7 @@ public class Main {
     }
 
 
-    //Greedu
+    //Greedy방식
     //최소거리를 mid로 할때 N개집에서 c공유기 설치가능한가?
     private static boolean check(int mid) {
         int count = 1; 
