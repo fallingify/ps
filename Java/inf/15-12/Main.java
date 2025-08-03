@@ -2,7 +2,6 @@ import java.util.*;
 
 class Main {
 
-
     public String solution(int n, String s) {
         String answer = ""; 
 
@@ -12,9 +11,7 @@ class Main {
             answer += (char)num; 
             s = s.substring(7); 
         }
-
         return answer;
-
     }
     
 
