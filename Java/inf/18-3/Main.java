@@ -43,7 +43,7 @@ class Main {
         for(char x : T.solution(n, arr1, arr2).toCharArray()) {
             System.out.println(x);
         }
-        
+
         
 
     }
