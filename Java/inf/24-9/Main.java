@@ -32,7 +32,7 @@ class Main {
         Main T = new Main(); 
         Scanner kb = new Scanner(System.in); 
         int n = kb.nextInt(); 
-        int[][] metrics = new int[5][5]; 
+        int[][] metrics = new int[n][n]; 
         for(int i=0; i<n; i++) {
             for(int j=0; j<n; j++) {
                 metrics[i][j] = kb.nextInt(); 
