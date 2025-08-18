@@ -3,26 +3,28 @@ import java.util.*;
 class Main {
     public int solution(int num, int[][] arr) {
         int answer = Integer.MIN_VALUE; 
-        int sum_row = 0, sum_col = 0; 
+        int sum1 = 0, sum2 = 0; 
         
         for(int i=0; i<num; i++) {
-            sum_row = sum_col = 0; 
+            sum1 = sum2 = 0; 
             for(int j=0; j<num; j++) {
-                sum_row += arr[i][j]; 
-                sum_col += arr[j][i]; 
+                sum1 += arr[i][j]; 
+                sum2 += arr[j][i]; 
             }
-            answer = Math.max(answer, sum_row); 
-            answer = Math.max(answer, sum_col); 
+            answer = Math.max(answer, sum1); 
+            answer = Math.max(answer, sum2); 
         }
        
-        sum_row = sum_col = 0; 
+        sum1 = sum2 = 0; 
         for(int i=0; i<num; i++) {
-            sum_row += arr[i][i]; 
-            sum_col += arr[i][num-i-1]; 
+            sum1 += arr[i][i]; 
+            sum2 += arr[i][num-i-1]; 
         }
 
-        answer = Math.max(answer, sum_row); 
-        answer = Math.max(answer, sum_col); 
+
+
+        answer = Math.max(answer, sum1); 
+        answer = Math.max(answer, sum2); 
 
         return answer; 
 
