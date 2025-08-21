@@ -1,5 +1,5 @@
 import java.util.*; 
-//두 배열 합치기 
+//두 배열 합치기  -> 2-pointer 알고리즘으로 풀어야한다. 
 class Main {
     public ArrayList<Integer> solution(int n, int m, int[] arr1, int[] arr2) {
         ArrayList<Integer> answer = new ArrayList<>(); 
@@ -13,8 +13,7 @@ class Main {
             } else {
                 answer.add(arr2[p2]); 
                 p2++; 
-            }
-            
+            }   
         }
         
         while(p1 < n) answer.add(arr1[p1++]); 
