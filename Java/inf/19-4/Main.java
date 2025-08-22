@@ -1,6 +1,5 @@
 import java.util.*; 
 
-
 class Main {
 
     public int[] Solution(int n){
