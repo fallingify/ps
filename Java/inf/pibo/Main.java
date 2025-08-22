@@ -1,3 +1,5 @@
+package pibo;
+
 import java.util.*; 
 //ㅍㅣㄴㅗㅂㅏㅊㅣ ㅅㅗㄴㅋㅗㄷㅣㅇ
 class Main {
