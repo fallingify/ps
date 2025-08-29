@@ -4,15 +4,12 @@ import java.util.*;
 // 다시 풀기 
 class Main {
     public int solution(int n) {
-        int answer=0, cnt = 1; 
+        int answer = 0, cnt = 1; 
         n--; 
-        while(n>0){
+        while(n > 0){
             cnt++; 
-            n=n-cnt; 
-            if(n % cnt == 0) {
-                //System.out.println(n + " " + cnt);
-                answer++; 
-            }
+            n = n - cnt; 
+            if(n % cnt == 0) answer++; 
         }
         return answer; 
     

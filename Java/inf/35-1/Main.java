@@ -9,15 +9,22 @@ class Main {
 
         for(char c : s.toCharArray()) {
             map.put(c, map.getOrDefault(c, 0) + 1); 
-        }
+        } //첫 밸류가 없는경우도 있으므로 default값을 넣어준다.
+
+        
+
+
+
+
+
 
         int max = Integer.MIN_VALUE; 
         for(char c : map.keySet()) {
             // System.out.println(x);
-                if (map.get(c) > max) {
-                    max = map.get(c); 
-                    answer = c; 
-                }
+            if (map.get(c) > max) {
+                max = map.get(c); 
+                answer = c; 
+            }
         }
         return answer; 
     }
