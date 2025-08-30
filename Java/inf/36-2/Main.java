@@ -14,7 +14,7 @@ class Main {
         for(char x : str2.toCharArray()) {
             if(!map.containsKey(x) || map.get(x) == 0) {
                 return "NO";
-ㄴ
+
             }
             map.put(x, map.get(x)-1); 
         }
