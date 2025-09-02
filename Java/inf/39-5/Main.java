@@ -3,7 +3,7 @@ import java.util.*;
 // Treeset은 중복원소도 자동 정렬해준다. 
 class Main {
     public int solution(int n, int k, int[] arr) {
-        int answer = 0; 
+        int answer = -1; //k번째 수가 존재하지 않으면 -1을 출력해야힘.  
         TreeSet<Integer> Tset = new TreeSet<>(Collections.reverseOrder());  //디폴트는 오름차순이다. 
         //조합만들기 
         for(int i=0; i<n; i++) {
