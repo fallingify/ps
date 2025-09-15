@@ -7,7 +7,7 @@ class Main {
         //i<->j를 교환
         for(int i=0; i<n-1; i++) { //n전까지 (n-1)
             int idx = i;     
-            for(int j = i+1; i<n; i++) {
+            for(int j = i+1; i<n; i++) { // i+1부터 마지막까지 팀섹히고 교환
                 if (arr[j] < arr[idx]) {
                     idx = j; 
                 }
