@@ -4,7 +4,7 @@ import java.util.*;
 public class Main {
 	static final int dx[] = {0,0,1,-1};
 	static final int dy[] = {1,-1,0,0};
-	static int n,m,count;
+	static int n,m,cnt;
 	static int square[][];
 	public static void main(String[] args) throws IOException {
 		new Main().run();
@@ -34,19 +34,19 @@ public class Main {
 			}
 		}
 		
-		ArrayList<Integer> areaCount = new ArrayList<>();
+		ArrayList<Integer> sqrCnt = new ArrayList<>();
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<m; j++) {
 				if(square[i][j] == 0) {
-					count = 0; 
+					cnt = 0; 
 					dfs(i,j);
-					areaCount.add(count);
+					sqrCnt.add(cnt);
 				}
 			}
 		}
-		Collections.sort(areaCount); 
-		sb.append(areaCount.size()).append('\n'); 
-		for(int i : areaCount)  {
+		Collections.sort(sqrCnt); 
+		sb.append(sqrCnt.size()).append('\n'); 
+		for(int i : sqrCnt)  {
 			sb.append(i + " ");
 		}
 		System.out.println(sb);
@@ -54,7 +54,7 @@ public class Main {
 	
 	static void dfs(int x, int y) {
 		square[x][y] = 1;
-		count ++; 
+		cnt ++; 
 		for(int k=0; k<4; k++) {
 			int nx = x + dx[k];
 			int ny = y + dy[k];
