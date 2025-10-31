@@ -14,9 +14,9 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		n = Integer.parseInt(st.nextToken());
-		m = Integer.parseInt(st.nextToken());
-		int k = Integer.parseInt(st.nextToken());
+		n = Integer.parseInt(st.nextToken()); //행수
+		m = Integer.parseInt(st.nextToken());  //열수 
+		int k = Integer.parseInt(st.nextToken()); //입력값 
 		
 		square = new int[n][m];
 		
@@ -27,6 +27,7 @@ public class Main {
 			int x2 = Integer.parseInt(st.nextToken());
 			int y2 = Integer.parseInt(st.nextToken());
 			
+			//색칠한 영역
 			for(int y=y1; y<y2; y++) { 
 				for(int x=x1; x<x2; x++){ 
 					square[y][x] = 1; 
@@ -34,6 +35,7 @@ public class Main {
 			}
 		}
 		
+		//색칠하지 않은 부분
 		ArrayList<Integer> sqrCnt = new ArrayList<>();
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<m; j++) {
@@ -45,6 +47,8 @@ public class Main {
 			}
 		}
 		Collections.sort(sqrCnt); 
+
+
 		sb.append(sqrCnt.size()).append('\n'); 
 		for(int i : sqrCnt)  {
 			sb.append(i + " ");
@@ -52,6 +56,7 @@ public class Main {
 		System.out.println(sb);
 	}
 	
+	//TD : NEED MEMORAZATION
 	static void dfs(int x, int y) {
 		square[x][y] = 1;
 		cnt ++; 
